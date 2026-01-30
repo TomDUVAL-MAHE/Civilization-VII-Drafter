@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "civ7-leaders-scraper"
+version = "0.1.0"
+description = "Scraper (MediaWiki API) for Civ7 leaders data from Fandom (EN/FR)."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests==2.32.3",
+  "beautifulsoup4==4.12.3",
+  "lxml==5.3.0",
+]
+
+[project.scripts]
+civ7-scrape = "scrape_civ7_leaders:main"
+
+[project.optional-dependencies]
+dev = [
+  "ruff==0.9.4",
+  "pytest==8.3.4",
+]

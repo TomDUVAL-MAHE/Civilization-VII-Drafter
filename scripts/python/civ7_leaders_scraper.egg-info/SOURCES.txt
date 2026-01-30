@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+scrape_civ7_leaders.py
+civ7_leaders_scraper.egg-info/PKG-INFO
+civ7_leaders_scraper.egg-info/SOURCES.txt
+civ7_leaders_scraper.egg-info/dependency_links.txt
+civ7_leaders_scraper.egg-info/entry_points.txt
+civ7_leaders_scraper.egg-info/requires.txt
+civ7_leaders_scraper.egg-info/top_level.txt

@@ -1,0 +1,2 @@
+[console_scripts]
+civ7-scrape = scrape_civ7_leaders:main

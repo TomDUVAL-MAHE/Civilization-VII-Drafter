@@ -1,0 +1,819 @@
+{
+  "meta": {
+    "pulled_at": "2026-01-30T20:11:50Z",
+    "sources": {
+      "en_list_page": "https://civilization.fandom.com/wiki/Leaders_(Civ7)",
+      "fr_list_page": "https://civilization.fandom.com/fr/wiki/Dirigeants_(Civ7)"
+    }
+  },
+  "leaders": [
+    {
+      "id": "ada_lovelace_civ7",
+      "en": {
+        "name": "Ada Lovelace",
+        "page_title": "Ada_Lovelace_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Ada_Lovelace_(Civ7)",
+        "attributes": [
+          "Cultural",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "Enchantress of Numbers",
+          "effects": [
+            "Cities receive +2 Science per Age when you complete a Civic Mastery . This resets at the start of each Age. Gain Culture equal to 50% of your total Science per turn when you complete a Technology Mastery ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Ada Lovelace",
+        "page_title": "Ada_Lovelace_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Ada_Lovelace_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Enchanteresse des nombres",
+          "effects": [
+            "les villes voient leur science augmenter par âge lorsque vous réalisez une maîtrise de technologie. Ce bonus est réinitialisé au début de chaque nouvel âge. Octroie une augmentation de culture égale à un certain pourcentage de votre total de science par tour lorsque vous réalisez une maîtrise de technologie."
+          ]
+        }
+      }
+    },
+    {
+      "id": "amina_civ7",
+      "en": {
+        "name": "Amina",
+        "page_title": "Amina_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Amina_(Civ7)",
+        "attributes": [
+          "Economic",
+          "Militaristic"
+        ],
+        "unique_ability": {
+          "name": "Warrior-Queen of Zazzau",
+          "effects": [
+            "+1 Resource Capacity in Cities . +1 Gold per Age for each Resource assigned to Cities . +5 Combat Strength on all Units in Plains and Desert ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Amina",
+        "page_title": "Amina_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Amina_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Reine guerrière de Zazzau",
+          "effects": [
+            "+1 capacité en ressources dans les villes.",
+            "+1 par âge pour chaque ressource assignée à une ville.",
+            "+5 force de combat dans les plaines et les déserts."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ashoka_civ7_world_conqueror",
+      "en": {
+        "name": "Ashoka, World Conqueror",
+        "page_title": "Ashoka_(Civ7)/World_Conqueror",
+        "url": "https://civilization.fandom.com/wiki/Ashoka_(Civ7)/World_Conqueror",
+        "attributes": [
+          "Diplomatic",
+          "Militaristic"
+        ],
+        "unique_ability": {
+          "name": "Devaraja",
+          "effects": [
+            "+1 Production in Cities for every 5 excess Happiness . +10% Production in Settlements not founded by you. Declaring a Formal War grants a Celebration . +5 Combat Strength against Districts for all Units during a Celebration ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Ashoka, Conquérant du monde",
+        "page_title": "Ashoka_(Civ7)/Conquérant_du_monde",
+        "url": "https://civilization.fandom.com/fr/wiki/Ashoka_(Civ7)/Conqu%C3%A9rant_du_monde",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Devaraja",
+          "effects": [
+            "+1 dans les villes pour chaque excèdent de 5 .",
+            "+10% dans les colonies que vous n’avez pas fondées.",
+            "La déclaration d’une guerre officielle débouche sur une célébration.",
+            "+10 de force de combat contre les districts fortifiés lors d’une célébration."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ashoka_civ7",
+      "en": {
+        "name": "Ashoka, World Renouncer",
+        "page_title": "Ashoka_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Ashoka_(Civ7)",
+        "attributes": [
+          "Diplomatic",
+          "Expansionist"
+        ],
+        "unique_ability": {
+          "name": "Dhammaraja",
+          "effects": [
+            "+1 Food in Cities for every 5 excess Happiness . +10% Food in all Settlements during a Celebration . All Buildings gain a +1 Happiness adjacency for all Improvements ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Ashoka, Renonciateur du monde",
+        "page_title": "Ashoka_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Ashoka_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Dhammaraja",
+          "effects": [
+            "+1 dans les villes pour chaque excédent de 5 .",
+            "+10% dans toutes les colonies lors d’une Célébration.",
+            "Les bâtiments obtiennent un bonus de proximité de pour tous les aménagements."
+          ]
+        }
+      }
+    },
+    {
+      "id": "augustus_civ7",
+      "en": {
+        "name": "Augustus",
+        "page_title": "Augustus_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Augustus_(Civ7)",
+        "attributes": [
+          "Cultural",
+          "Expansionist"
+        ],
+        "unique_ability": {
+          "name": "Imperium Maius",
+          "effects": [
+            "+2 Production in the Capital for every Town . Can purchase Culture Buildings in Towns . +50% Gold towards purchasing Buildings in Towns ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Auguste",
+        "page_title": "Auguste_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Auguste_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Imperium maius",
+          "effects": [
+            "+2 dans la capitale pour chaque commune.",
+            "+50% pour l'achat de bâtiments dans les communes.",
+            "Peut acheter des bâtiments culturels dans les communes."
+          ]
+        }
+      }
+    },
+    {
+      "id": "catherine_the_great_civ7",
+      "en": {
+        "name": "Catherine the Great",
+        "page_title": "Catherine_the_Great_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Catherine_the_Great_(Civ7)",
+        "attributes": [
+          "Cultural",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "Star of the North",
+          "effects": [
+            "+2 Culture per Age on displayed Great Works . Buildings with Great Work slots gain an additional Slot . Cities settled in Tundra gain Science equal to 25% of their Culture per turn ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Catherine II",
+        "page_title": "Catherine_II_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Catherine_II_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Étoile du nord",
+          "effects": [
+            "+2 par âge pour les chefs-d'œuvre exposés.",
+            "Les bâtiments disposant d'emplacements de chef-d'œuvre gagnent un emplacement supplémentaire.",
+            "Les villes dans la toundra génèrent un montant de science égal à 25% de leur culture ."
+          ]
+        }
+      }
+    },
+    {
+      "id": "confucius_civ7",
+      "en": {
+        "name": "Confucius",
+        "page_title": "Confucius_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Confucius_(Civ7)",
+        "attributes": [
+          "Expansionist",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "Keju",
+          "effects": [
+            "+25% Growth Rate in all Cities . +2 Science from Specialists ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Confucius",
+        "page_title": "Confucius_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Confucius_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Keju",
+          "effects": [
+            "+25% croissance dans les villes.",
+            "+2 pour les spécialistes."
+          ]
+        }
+      }
+    },
+    {
+      "id": "hatshepsut_civ7",
+      "en": {
+        "name": "Hatshepsut",
+        "page_title": "Hatshepsut_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Hatshepsut_(Civ7)",
+        "attributes": [
+          "Cultural",
+          "Economic"
+        ],
+        "unique_ability": {
+          "name": "God's Wife of Amun",
+          "effects": [
+            "+1 Culture per Age for each unique Resource . +15% Production towards the construction of Buildings and Wonders in Cities adjacent to Navigable Rivers ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Hatshepsout",
+        "page_title": "Hatshepsout_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Hatshepsout_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Épouse divine d'Amon",
+          "effects": [
+            "+1 pour chaque Ressource importée.",
+            "+15% pour la construction de bâtiments et de merveilles dans les villes adjacentes à une rivière navigable."
+          ]
+        }
+      }
+    },
+    {
+      "id": "lafayette_civ7",
+      "en": {
+        "name": "Lafayette",
+        "page_title": "Lafayette_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Lafayette_(Civ7)",
+        "attributes": [
+          "Cultural",
+          "Diplomatic"
+        ],
+        "unique_ability": {
+          "name": "Hero of Two Worlds",
+          "effects": [
+            "Gains a unique Endeavor , Reform , which grants an additional Social Policy slot . Supporting this Endeavor also grants the other Leader an additional Social Policy slot . +1 Combat Strength for every Tradition ( but not Social Policy ) slotted in the Government . +1 Culture and Happiness per Age in Settlements , doubled in distant lands ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "La Fayette",
+        "page_title": "La_Fayette_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/La_Fayette_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Héros des deux mondes",
+          "effects": [
+            "vous disposez de l’initiative conjointe exclusive Réforme, qui octroie un emplacement de doctrine sociale supplémentaire. Le soutien à cette initiative conjointe octroie également à l’autre dirigeant un emplacement de doctrine sociale supplémentaire. Augmente la puissance de combat par tradition, et non doctrine, dans le gouvernement. Augmente la culture et le bonheur par âge dans les colonies. Ces effets sont accrus dans les contrées lointaines."
+          ]
+        }
+      }
+    },
+    {
+      "id": "machiavelli_civ7",
+      "en": {
+        "name": "Machiavelli",
+        "page_title": "Machiavelli_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Machiavelli_(Civ7)",
+        "attributes": [
+          "Diplomatic",
+          "Economic"
+        ],
+        "unique_ability": {
+          "name": "Il Principe",
+          "effects": [
+            "Gain +3 Influence per Age . Gain 50 Gold per Age when your Diplomatic Actions are accepted, or 100 Gold per Age when they are rejected. Ignore Relationship requirements for declaring Formal Wars . You can Levy Military Units from City-States you are not suzerain of."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Machiavel",
+        "page_title": "Machiavel_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Machiavel_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Le Prince",
+          "effects": [
+            "+3 par âge",
+            "+50 par âge lorsque vos actions diplomatiques sont acceptées,",
+            "+100 par âge lorsqu'elles sont refusées.",
+            "Vous ignorez les prérequis de relation pour la déclaration de guerres officielles.",
+            "Vous pouvez lever les troupes des cités-États sans en être suzerain."
+          ]
+        }
+      }
+    },
+    {
+      "id": "napoleon_civ7_revolutionary",
+      "en": {
+        "name": "Napoleon, Revolutionary",
+        "page_title": "Napoleon_(Civ7)/Revolutionary",
+        "url": "https://civilization.fandom.com/wiki/Napoleon_(Civ7)/Revolutionary",
+        "attributes": [
+          "Militaristic",
+          "Cultural"
+        ],
+        "unique_ability": {
+          "name": "Enemy of the Coalitions",
+          "effects": [
+            "+1 Movement for all Land Units . Defeating an enemy Unit provides Culture equal to of 100% of its Combat Strength . The first time each Age that a War is declared against you, gain an Army Commander in your Capital packed with 1 Infantry , Cavalry , Ranged and Siege Unit , even if those Units have not been unlocked."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Napoléon, Révolutionnaire",
+        "page_title": "Napoléon_(Civ7)/Révolutionnaire",
+        "url": "https://civilization.fandom.com/fr/wiki/Napol%C3%A9on_(Civ7)/R%C3%A9volutionnaire",
+        "attributes": [],
+        "unique_ability": {
+          "name": "La Grande Armée",
+          "effects": [
+            "Augmente le PM pour toutes les unités terrestres. La défaite d'une unité ennemie permet de gagner un montant de culture équivalent à un pourcentage de sa puissance de combat."
+          ]
+        }
+      }
+    },
+    {
+      "id": "napoleon_civ7",
+      "en": {
+        "name": "Napoleon, Emperor",
+        "page_title": "Napoleon_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Napoleon_(Civ7)",
+        "attributes": [
+          "Economic",
+          "Diplomatic"
+        ],
+        "unique_ability": {
+          "name": "Continental System",
+          "effects": [
+            "+50% Influence towards initiating Sanctions . +5 Culture and Gold per Age for each leader you have an active Sanction on except Denouncement . +1 Combat Strength for all Land Units for every Sanction you have active, except Denouncement. All basic Sanctions are automatically unlocked."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Napoléon, Empereur",
+        "page_title": "Napoléon_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Napol%C3%A9on_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Empereur des français",
+          "effects": [
+            "* Octroie une action diplomatique unique qui réduit la capacité des routes commerciales de la civilisation cible et génère des griefs majeurs. Augmente le bonus d'or par âge pour chaque dirigeant avec lequel il entretient des relations inamicales ou hostiles."
+          ]
+        }
+      }
+    },
+    {
+      "id": "tecumseh_civ7",
+      "en": {
+        "name": "Tecumseh",
+        "page_title": "Tecumseh_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Tecumseh_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Diplomatic"
+        ],
+        "unique_ability": {
+          "name": "Nicaakiyakoolaakwe",
+          "effects": [
+            "+1 Food and Production per Age in Settlements for every City-State you are suzerain of. +1 Combat Strength for all your Units for every City-State you are suzerain of."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Tecumseh",
+        "page_title": "Tecumseh_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Tecumseh_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Nicaakiyakoolaakwe",
+          "effects": [
+            "+1 et +1 par âge pour chaque cité état dont vous êtes le suzerain",
+            "+1 force de combat pour chaque cité état dont vous êtes le suzerain"
+          ]
+        }
+      }
+    },
+    {
+      "id": "trung_trac_civ7",
+      "en": {
+        "name": "Trung Trac",
+        "page_title": "Trung_Trac_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Trung_Trac_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "Hai Bà Trưng",
+          "effects": [
+            "Gain a unique Commander , Trung Nhi , after the first Land Military Unit of the Age is produced. Your Commanders gain +20% experience . +10% Science in Cities on Tropical tiles ; this bonus is doubled during any Formal War you declare."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Trưng Trắc",
+        "page_title": "Trưng_Trắc_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Tr%C6%B0ng_Tr%E1%BA%AFc_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Hai Bà Trưng",
+          "effects": [
+            "+3 promotions gratuites sur votre premier Commandant.",
+            "+20% d'expérience pour vos commandants.",
+            "+10% dans les Villes sur les cases tropicales. Ce bonus est doublé pendant toutes les guerres officielles que vous déclarez."
+          ]
+        }
+      }
+    },
+    {
+      "id": "xerxes_civ7",
+      "en": {
+        "name": "Xerxes, King of Kings",
+        "page_title": "Xerxes_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Xerxes_(Civ7)",
+        "attributes": [
+          "Economic",
+          "Militaristic"
+        ],
+        "unique_ability": {
+          "name": "Crusher of Rebellions",
+          "effects": [
+            "+3 Combat Strength for Units that are attacking in neutral or enemy territory . +100 Culture and Gold per Age upon capturing a Settlement for the first time. +10% Gold in all Settlements , doubled in Settlements not founded by you. +1 Settlement Limit per Age."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Xerxès, Roi des rois",
+        "page_title": "Xerxès,_Roi_des_rois_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Xerx%C3%A8s,_Roi_des_rois_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Répresseur de rébellions",
+          "effects": [
+            "+3 puissance de combat en attaque en territoire neutre ou ennemi.",
+            "+100 et par âge lorsque vous capturez une colonie pour la première fois.",
+            "+10% dans toutes les colonies. Ce bonus est doublé dans les colonies que vous n’avez pas fondées.",
+            "Augmente la Limite de colonies par âge."
+          ]
+        }
+      }
+    },
+    {
+      "id": "xerxes_civ7_the_achaemenid",
+      "en": {
+        "name": "Xerxes, the Achaemenid",
+        "page_title": "Xerxes_(Civ7)/the_Achaemenid",
+        "url": "https://civilization.fandom.com/wiki/Xerxes_(Civ7)/the_Achaemenid",
+        "attributes": [
+          "Cultural",
+          "Economic"
+        ],
+        "unique_ability": {
+          "name": "Silk Road",
+          "effects": [
+            "+1 Trade Route Limit with all other leaders. +10 Trade Range . +50 Culture and 100 Gold per Age when you create a Trade Route or Road . +1 Culture and Gold per Age on Unique Buildings and Unique Improvements ."
+          ]
+        }
+      },
+      "fr": {
+        "name": "Xerxès, l'Achéménide",
+        "page_title": "Xerxès,_l'Achéménide_(Civ7)",
+        "url": "https://civilization.fandom.com/fr/wiki/Xerx%C3%A8s,_l%27Ach%C3%A9m%C3%A9nide_(Civ7)",
+        "attributes": [],
+        "unique_ability": {
+          "name": "Route de la soie",
+          "effects": [
+            "+1 limite de route commerciale avec tous les autres dirigeants.",
+            "+50 et +100 par âge quand vous créez une route commerciale.",
+            "+1 et par âge sur les bâtiments exclusifs et les aménagements exclusifs."
+          ]
+        }
+      }
+    },
+    {
+      "id": "benjamin_franklin_civ7",
+      "en": {
+        "name": "Benjamin Franklin",
+        "page_title": "Benjamin_Franklin_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Benjamin_Franklin_(Civ7)",
+        "attributes": [
+          "Diplomatic",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "The First American",
+          "effects": [
+            "+1 Science per Age on Production Buildings in Cities . +50% Production towards constructing Production Buildings . +1 Science per Age from active Endeavors you started or supported. Can have two Endeavors of the same type active at a time."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "charlemagne_civ7",
+      "en": {
+        "name": "Charlemagne",
+        "page_title": "Charlemagne_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Charlemagne_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "Father of Europe",
+          "effects": [
+            "Military and Science Buildings receive a Happiness adjacency from Quarters . Gain 2 Cavalry Units , once unlocked, when entering a Celebration . +5 Combat Strength for Cavalry Units during a Celebration ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "edward_teach_civ7",
+      "en": {
+        "name": "Edward Teach",
+        "page_title": "Edward_Teach_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Edward_Teach_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Economic"
+        ],
+        "unique_ability": {
+          "name": "Blackbeard",
+          "effects": [
+            "All Naval Units gain the Pirate ability , allowing them to cross borders of other civilizations , Plunder Trade Route from non-allied civilizations, and attack Naval Units of non-allied civilizations without declaring War . Defeating any Naval Units with your own Naval Units provides Gold equal to a set percentage of its Combat Strength and captures that Unit. Increased Gold maintenance costs for all Naval Units."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "friedrich_civ7_baroque",
+      "en": {
+        "name": "Friedrich, Baroque",
+        "page_title": "Friedrich_(Civ7)/Baroque",
+        "url": "https://civilization.fandom.com/wiki/Friedrich_(Civ7)/Baroque",
+        "attributes": [
+          "Militaristic",
+          "Cultural"
+        ],
+        "unique_ability": {
+          "name": "Hohenfriedberger Marsch",
+          "effects": [
+            "Gain a Great Work upon capturing a Settlement for the first time. +1 Culture per Age on displayed Great Works . Gain an Infantry Unit when you complete a Civic Mastery or construct a Culture Building ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "friedrich_civ7",
+      "en": {
+        "name": "Friedrich, Oblique",
+        "page_title": "Friedrich_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Friedrich_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "Berlin Academy",
+          "effects": [
+            "Commanders start with the Merit Commendation , granting them +1 Command Radius . Gain an Infantry Unit when you complete a Technology Mastery or construct a Science Building ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "genghis_khan_civ7",
+      "en": {
+        "name": "Genghis Khan",
+        "page_title": "Genghis_Khan_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Genghis_Khan_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Expansionist"
+        ],
+        "unique_ability": {
+          "name": "Chosen of Tengri",
+          "effects": [
+            "+3 Combat Strength for Cavalry Units , or +5 when in an Army Command Radius . Army Commanders have +1 Movement even when no Units are packed into them. Once per Age , Army Commanders can use the Convert Independents action to convert adjacent Independent Military Units to your control."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "harriet_tubman_civ7",
+      "en": {
+        "name": "Harriet Tubman",
+        "page_title": "Harriet_Tubman_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Harriet_Tubman_(Civ7)",
+        "attributes": [
+          "Diplomatic",
+          "Militaristic"
+        ],
+        "unique_ability": {
+          "name": "Combahee Raid",
+          "effects": [
+            "+50% Influence towards initiating Espionage Actions . Gain 5 War Support on all Wars declared against you. Units ignore Movement penalties from Vegetation ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "himiko_civ7_high_shaman",
+      "en": {
+        "name": "Himiko, High Shaman",
+        "page_title": "Himiko_(Civ7)/High_Shaman",
+        "url": "https://civilization.fandom.com/wiki/Himiko_(Civ7)/High_Shaman",
+        "attributes": [
+          "Cultural",
+          "Diplomatic"
+        ],
+        "unique_ability": {
+          "name": "Miko of Amaterasu",
+          "effects": [
+            "+2 Happiness per Age on Happiness and Diplomacy Buildings , doubled if a Building is both. +50% Production towards constructing Happiness and Diplomacy Buildings , doubled if a Building is both. +20% Culture but -10% Science . These effects are doubled during a Celebrations ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "himiko_civ7",
+      "en": {
+        "name": "Himiko, Queen of Wa",
+        "page_title": "Himiko_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Himiko_(Civ7)",
+        "attributes": [
+          "Diplomatic",
+          "Scientific"
+        ],
+        "unique_ability": {
+          "name": "Friend of Wei",
+          "effects": [
+            "Gain a unique Endeavor , Friend of Wei , which can be performed in an Alliance to grant you and your Ally +25% Science . Can support Endeavors for free. +4 Science per Age for every leader you're Friendly or Helpful with."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "ibn_battuta_civ7",
+      "en": {
+        "name": "Ibn Battuta",
+        "page_title": "Ibn_Battuta_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Ibn_Battuta_(Civ7)",
+        "attributes": [
+          "Expansionist"
+        ],
+        "unique_ability": {
+          "name": "The Marvels of Traveling",
+          "effects": [
+            "Gains multiple Attribute Points after the first Civic in every Age . Increased Sight for all Units . Gain a unique Endeavor , Trade Map , that lets you gradually see other Leaders' explored areas."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "isabella_civ7",
+      "en": {
+        "name": "Isabella",
+        "page_title": "Isabella_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Isabella_(Civ7)",
+        "attributes": [
+          "Expansionist",
+          "Economic"
+        ],
+        "unique_ability": {
+          "name": "Seven Cities of Gold",
+          "effects": [
+            "Gain 100 Gold per Age every time you discover a Natural Wonder , doubled if the Natural Wonder is in distant lands . +50% tiles yields from Natural Wonders for every Natural Wonder in your empire , +50% Gold towards purchasing Naval Units , and -1 Gold maintenance for Naval Units ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "jos_rizal_civ7",
+      "en": {
+        "name": "José Rizal",
+        "page_title": "José_Rizal_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Jos%C3%A9_Rizal_(Civ7)",
+        "attributes": [
+          "Cultural",
+          "Diplomatic"
+        ],
+        "unique_ability": {
+          "name": "Pambansang Bayani",
+          "effects": [
+            "When gaining rewards from a Narrative Event , gain an additional +20 Culture , Gold and Influence per Age . Increased Celebration duration and Happiness towards Celebrations by +50%. Has additional Narrative Events ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "lakshmibai_civ7",
+      "en": {
+        "name": "Lakshmibai",
+        "page_title": "Lakshmibai_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Lakshmibai_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Diplomatic"
+        ],
+        "unique_ability": {
+          "name": "Rani of Jhansi",
+          "effects": [
+            "+50% Influence towards initiating the City-State - Incorporate Action . Gain control of all the City-State 's Units when performing the Incorporate Action. When one of your Land Military Units defeats an enemy Unit , gain Influence equal to 100% of its Combat Strength ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "pachacuti_civ7",
+      "en": {
+        "name": "Pachacuti",
+        "page_title": "Pachacuti_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Pachacuti_(Civ7)",
+        "attributes": [
+          "Economic",
+          "Expansionist"
+        ],
+        "unique_ability": {
+          "name": "Earth Shaker",
+          "effects": [
+            "All Buildings gain a +1 Food adjacency from Mountains . Specialists adjacent to Mountains do not cost Happiness maintenance . Cities gain a bonus to Production equal to 10% of that City 's Food ."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "sayyida_al_hurra_civ7",
+      "en": {
+        "name": "Sayyida al Hurra",
+        "page_title": "Sayyida_al_Hurra_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Sayyida_al_Hurra_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Diplomatic"
+        ],
+        "unique_ability": {
+          "name": "Hakima Tatwan",
+          "effects": [
+            "Receive the strongest Naval Unit every time you complete an Espionage Action, if you can place a Naval Unit . Naval Units stationed on a District provide +1 Culture and Influence per Age. No Influence penalty for your Espionage being revealed. Opponents cannot use Counter Spy against you."
+          ]
+        }
+      },
+      "fr": null
+    },
+    {
+      "id": "sim_n_bol_var_civ7",
+      "en": {
+        "name": "Simón Bolívar",
+        "page_title": "Simón_Bolívar_(Civ7)",
+        "url": "https://civilization.fandom.com/wiki/Sim%C3%B3n_Bol%C3%ADvar_(Civ7)",
+        "attributes": [
+          "Militaristic",
+          "Expansionist"
+        ],
+        "unique_ability": {
+          "name": "El Libertador",
+          "effects": [
+            "Gain 1 War Support on all Wars . Upon conquering a Settlement for the first time, can purchase 1 Constructible for free. Unrest does not prevent purchasing."
+          ]
+        }
+      },
+      "fr": null
+    }
+  ]
+}

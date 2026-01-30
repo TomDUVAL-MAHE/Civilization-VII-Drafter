@@ -1,0 +1,129 @@
+# Civ7 Leaders Scraper (Fandom EN/FR)
+
+Petit outil Python pour récupérer la liste des **Leaders Civ7** depuis Fandom (EN + FR) et produire un JSON fusionné :
+
+- Leaders + attributs
+- Nom + effets de la compétence unique
+- Textes en **anglais** et **français** (quand dispo)
+- Mapping FR → EN via le lien de langue **“English”**
+
+Sources :
+- EN : https://civilization.fandom.com/wiki/Leaders_(Civ7)
+- FR : https://civilization.fandom.com/fr/wiki/Dirigeants_(Civ7)
+
+---
+
+## Prérequis
+
+- **Python >= 3.10**
+- Accès internet
+
+---
+
+## Installation (venv + dépendances)
+
+> Toutes les commandes ci-dessous sont à lancer **à la racine du projet** (là où se trouvent `pyproject.toml` et `scrape_civ7_leaders.py`).
+
+### Windows (PowerShell)
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -e ".[dev]"
+```
+
+Si PowerShell bloque l’activation, lance ceci **une seule fois** :
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+### Linux / macOS (bash/zsh)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -e ".[dev]"
+```
+
+---
+
+## Utilisation
+
+### Lancer le scraping
+
+```bash
+civ7-scrape --out leaders.civ7.json --sleep 0.3
+```
+
+- `--out` : chemin du fichier JSON généré (défaut : `leaders.civ7.json`)
+- `--sleep` : pause entre requêtes sur les pages FR (politeness / éviter le rate-limit). Recommandé : `0.2` à `0.5`
+
+Exemple :
+
+```bash
+civ7-scrape --out data/leaders.civ7.json --sleep 0.4
+```
+
+---
+
+## Sortie
+
+Le JSON généré contient :
+
+- `meta.pulled_at` : date de génération (UTC)
+- `meta.sources` : pages Fandom utilisées
+- `leaders[]` : tableau d’objets fusionnés par leader :
+  - `id` : identifiant stable dérivé du titre wiki
+  - `en` : bloc EN (ou `null` si pas trouvé)
+  - `fr` : bloc FR (ou `null` si pas trouvé)
+
+---
+
+## Notes importantes
+
+- Le script utilise l’API MediaWiki (`api.php`) pour récupérer les tables (plus stable que scraper l’UI).
+- Le mapping FR → EN utilise le lien de langue **“English”** en lisant la page FR complète.
+- Si Fandom modifie la structure des pages (titres de colonnes, tables), il faudra ajuster les heuristiques.
+
+---
+
+## Développement (optionnel)
+
+Les dépendances dev (lint/tests) sont incluses avec :
+
+```bash
+pip install -e ".[dev]"
+```
+
+### Ruff (lint)
+
+```bash
+ruff check .
+```
+
+### Pytest (si tu ajoutes des tests)
+
+```bash
+pytest
+```
+
+---
+
+## Dépannage rapide
+
+### `civ7-scrape` introuvable
+
+Vérifie que :
+- le venv est activé (`(.venv)` visible dans le terminal)
+- tu as bien fait `pip install -e ".[dev]"`
+
+### Erreur `lxml` à l’installation (rare)
+
+Sur certains environnements, `lxml` peut nécessiter des outils système.
+
+Solutions :
+- temporairement enlever `lxml==...` du `pyproject.toml` (BeautifulSoup utilisera `html.parser`)
+- ou installer les prérequis système (recommandé si tu veux du parsing
