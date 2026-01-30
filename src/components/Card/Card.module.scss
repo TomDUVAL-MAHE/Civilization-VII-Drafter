@@ -25,3 +25,30 @@
     line-height: 1.5;
   }
 }
+
+.red {
+  background-color: #e53935;
+
+  .title,
+  .description {
+    color: #fff;
+  }
+}
+
+.blue {
+  background-color: #1e88e5;
+
+  .title,
+  .description {
+    color: #fff;
+  }
+}
+
+.gray {
+  background-color: #bdbdbd;
+
+  .title,
+  .description {
+    color: #2b2b2b;
+  }
+}
