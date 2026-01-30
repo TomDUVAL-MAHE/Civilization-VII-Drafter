@@ -10,16 +10,19 @@ export default function Home() {
           title="Card 1"
           description="Cliquez pour accéder à la première page"
           href="/card1"
+          variant="red"
         />
         <Card
           title="Card 2"
           description="Cliquez pour accéder à la deuxième page"
           href="/card2"
+          variant="blue"
         />
         <Card
           title="Card 3"
           description="Cliquez pour accéder à la troisième page"
           href="/card3"
+          variant="gray"
         />
       </div>
     </div>
