@@ -217,6 +217,12 @@ const styleNotes = [
   'Inputs are framed with subtle borders and warm focus rings.',
 ];
 
+const assumptions = [
+  'La suppression d’un player demande une confirmation native (window.confirm).',
+  'La validation du nom du player se fait à la perte de focus ou via Entrée.',
+  'Les suggestions des tags restent limitées aux 6 premiers résultats filtrés.',
+];
+
 const styleTokens = [
   '--color-bg: #0b0f12',
   '--color-card: #151b21',
@@ -393,7 +399,7 @@ const TagInput = ({
   values,
   onAdd,
   onRemove,
-  options,
+  options = [],
   placeholder,
   helper,
   name,
@@ -408,15 +414,26 @@ const TagInput = ({
   name: string;
 }) => {
   const [inputValue, setInputValue] = useState('');
-  const datalistId = `${name}-list`;
 
-  const handleAdd = () => {
-    const trimmed = inputValue.trim();
-    if (!trimmed) {
+  const suggestions = options
+    .filter((option) => option.toLowerCase().includes(inputValue.trim().toLowerCase()))
+    .filter((option) => !values.includes(option))
+    .slice(0, 6);
+
+  const handleAdd = (nextValue?: string) => {
+    const trimmed = (nextValue ?? inputValue).trim();
+    if (!trimmed || values.includes(trimmed)) {
       return;
     }
     onAdd(trimmed);
     setInputValue('');
+  };
+
+  const handleRemoveLast = () => {
+    if (values.length === 0) {
+      return;
+    }
+    onRemove(values[values.length - 1]);
   };
 
   return (
@@ -424,52 +441,116 @@ const TagInput = ({
       <label className={styles.label} htmlFor={name}>
         {label}
       </label>
-      <div className={styles.tagInput}>
-        <input
-          className={styles.input}
-          id={name}
-          name={name}
-          list={options ? datalistId : undefined}
-          value={inputValue}
-          placeholder={placeholder}
-          onChange={(event) => setInputValue(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter') {
-              event.preventDefault();
-              handleAdd();
-            }
-          }}
-        />
-        <button className={styles.buttonSecondary} type="button" onClick={handleAdd}>
-          Add
-        </button>
-      </div>
-      {options ? (
-        <datalist id={datalistId}>
-          {options.map((option) => (
-            <option key={option} value={option} />
+      <div className={styles.tagField}>
+        <div className={styles.tagList} aria-live="polite">
+          {values.map((value) => (
+            <span key={value} className={styles.tagChip}>
+              {value}
+              <button
+                type="button"
+                className={styles.chipButton}
+                aria-label={`Remove ${value}`}
+                onClick={() => onRemove(value)}
+              >
+                ×
+              </button>
+            </span>
           ))}
-        </datalist>
-      ) : null}
-      <div className={styles.chipRow} aria-live="polite">
-        {values.map((value) => (
-          <span key={value} className={styles.chip}>
-            {value}
-            <button
-              type="button"
-              className={styles.chipButton}
-              aria-label={`Remove ${value}`}
-              onClick={() => onRemove(value)}
-            >
-              ×
-            </button>
-          </span>
-        ))}
+          <input
+            className={styles.tagInputField}
+            id={name}
+            name={name}
+            value={inputValue}
+            placeholder={placeholder}
+            onChange={(event) => setInputValue(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                event.preventDefault();
+                handleAdd();
+              }
+              if (event.key === 'Backspace' && inputValue.length === 0) {
+                event.preventDefault();
+                handleRemoveLast();
+              }
+            }}
+          />
+        </div>
+        {suggestions.length > 0 ? (
+          <div className={styles.suggestionList} role="listbox">
+            {suggestions.map((option) => (
+              <button
+                key={option}
+                type="button"
+                className={styles.suggestionItem}
+                onClick={() => handleAdd(option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        ) : null}
       </div>
       {helper ? <p className={styles.helper}>{helper}</p> : null}
     </div>
   );
 };
+
+const ToggleInfoButton = ({
+  title,
+  tooltip,
+  pressed,
+  onToggle,
+  disabled,
+}: {
+  title: string;
+  tooltip: string;
+  pressed: boolean;
+  onToggle: () => void;
+  disabled?: boolean;
+}) => {
+  return (
+    <button
+      type="button"
+      className={[styles.toggleButton, pressed ? styles.toggleActive : '', disabled ? styles.toggleDisabled : '']
+        .filter(Boolean)
+        .join(' ')}
+      onClick={onToggle}
+      aria-pressed={pressed}
+      disabled={disabled}
+    >
+      <span>{title}</span>
+      <span className={styles.infoDot} role="img" aria-label={tooltip} data-tooltip={tooltip}>
+        ℹ️
+      </span>
+    </button>
+  );
+};
+
+const IconButton = ({
+  label,
+  onClick,
+  disabled,
+  icon,
+  variant = 'default',
+}: {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  icon: string;
+  variant?: 'default' | 'danger';
+}) => (
+  <button
+    type="button"
+    className={[styles.iconButton, variant === 'danger' ? styles.iconButtonDanger : '']
+      .filter(Boolean)
+      .join(' ')}
+    aria-label={label}
+    onClick={onClick}
+    disabled={disabled}
+  >
+    {icon}
+  </button>
+);
 
 export default function DraftPage() {
   const [selectedAges, setSelectedAges] = useState<Age[]>(['Antiquity', 'Exploration', 'Modern']);
@@ -494,6 +575,8 @@ export default function DraftPage() {
   const [forceCivPanel, setForceCivPanel] = useState<Record<string, boolean>>({});
   const [forceCivQuery, setForceCivQuery] = useState<Record<string, string>>({});
   const [forceCivAge, setForceCivAge] = useState<Record<string, Age>>({});
+  const [editingPlayerId, setEditingPlayerId] = useState<string | null>(null);
+  const [editingPlayerName, setEditingPlayerName] = useState('');
 
   const attributeOptions = useMemo(() => getUniqueAttributes(), []);
 
@@ -557,7 +640,32 @@ export default function DraftPage() {
   };
 
   const handleRemovePlayer = (id: string) => {
+    if (players.length <= 1) {
+      return;
+    }
+    const confirmed = window.confirm('Remove this player?');
+    if (!confirmed) {
+      return;
+    }
     setPlayers((prev) => prev.filter((player) => player.id !== id));
+  };
+
+  const startEditingPlayerName = (player: Player) => {
+    setEditingPlayerId(player.id);
+    setEditingPlayerName(player.name);
+  };
+
+  const commitPlayerName = (player: Player) => {
+    if (!editingPlayerId || editingPlayerId !== player.id) {
+      return;
+    }
+    const nextName = editingPlayerName.trim() || player.name;
+    updatePlayer(player.id, { name: nextName });
+    setEditingPlayerId(null);
+  };
+
+  const cancelPlayerName = () => {
+    setEditingPlayerId(null);
   };
 
   const updatePlayer = (id: string, update: Partial<Player>) => {
@@ -753,6 +861,14 @@ export default function DraftPage() {
       <section className={styles.styleSummary}>
         <h1 className={styles.pageTitle}>Style extracted from mood board</h1>
         <div className={styles.styleColumns}>
+          <div>
+            <h2 className={styles.sectionTitle}>Hypothèses</h2>
+            <ul className={styles.bulletList}>
+              {assumptions.map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+          </div>
           <ul className={styles.bulletList}>
             {styleNotes.map((note) => (
               <li key={note}>{note}</li>
@@ -873,26 +989,20 @@ export default function DraftPage() {
                   <p className={styles.helper}>Max: {leaderMax} (based on duplicates + players)</p>
                 </div>
 
-                <label className={styles.switchRow}>
-                  <input
-                    type="checkbox"
-                    checked={canGetDoublonsLeaders}
-                    onChange={(event) => setCanGetDoublonsLeaders(event.target.checked)}
+                <div className={styles.toggleRow}>
+                  <ToggleInfoButton
+                    title="Duplicates"
+                    tooltip="Allows the same leader to appear for multiple players."
+                    pressed={canGetDoublonsLeaders}
+                    onToggle={() => setCanGetDoublonsLeaders(!canGetDoublonsLeaders)}
                   />
-                  <span>Allow duplicate leaders across players</span>
-                </label>
-
-                <label className={styles.switchRow}>
-                  <input
-                    type="checkbox"
-                    checked={isHomogenousLeaderDraft}
-                    onChange={(event) => setIsHomogenousLeaderDraft(event.target.checked)}
+                  <ToggleInfoButton
+                    title="Similar leaders"
+                    tooltip="Bias the generation toward leaders sharing similar attributes."
+                    pressed={isHomogenousLeaderDraft}
+                    onToggle={() => setIsHomogenousLeaderDraft(!isHomogenousLeaderDraft)}
                   />
-                  <span>Homogenous leader draft (similar attributes)</span>
-                </label>
-                <p className={styles.helper}>
-                  If enabled, generated leaders will share a closer attribute profile.
-                </p>
+                </div>
 
                 <TagInput
                   label="Forced draft attributes (global)"
@@ -963,30 +1073,25 @@ export default function DraftPage() {
                   <p className={styles.helper}>Max: {civMax}.</p>
                 </div>
 
-                <label className={styles.switchRow}>
-                  <input
-                    type="checkbox"
-                    checked={canGetDoublonsCivs}
-                    onChange={(event) => setCanGetDoublonsCivs(event.target.checked)}
+                <div className={styles.toggleRow}>
+                  <ToggleInfoButton
+                    title="Duplicates"
+                    tooltip="Allows the same civilization to appear for multiple players."
+                    pressed={canGetDoublonsCivs}
+                    onToggle={() => setCanGetDoublonsCivs(!canGetDoublonsCivs)}
                   />
-                  <span>Allow duplicate civilizations across players</span>
-                </label>
-
-                <label className={styles.switchRow}>
-                  <input
-                    type="checkbox"
-                    checked={isHomogenousCivilisationDraft}
-                    onChange={(event) => setIsHomogenousCivilisationDraft(event.target.checked)}
+                  <ToggleInfoButton
+                    title="Similar civs"
+                    tooltip="Bias the generation toward civs sharing similar attributes."
+                    pressed={isHomogenousCivilisationDraft}
+                    onToggle={() => setIsHomogenousCivilisationDraft(!isHomogenousCivilisationDraft)}
                   />
-                  <span>Homogenous civ draft (similar attributes)</span>
-                </label>
-
-                <label className={styles.switchRow}>
-                  <input
-                    type="checkbox"
-                    checked={isHomogenousCivWithLeader}
-                    onChange={(event) => {
-                      const next = event.target.checked;
+                  <ToggleInfoButton
+                    title="Match with leader (strict)"
+                    tooltip="Only civs closely matching the selected leader attributes."
+                    pressed={isHomogenousCivWithLeader}
+                    onToggle={() => {
+                      const next = !isHomogenousCivWithLeader;
                       setIsHomogenousCivWithLeader(next);
                       if (next) {
                         setIsQuasiHomogenousCivWithLeader(false);
@@ -994,15 +1099,12 @@ export default function DraftPage() {
                     }}
                     disabled={!hasForcedLeaderSelection(players)}
                   />
-                  <span>Match civ attributes with selected leader (strict)</span>
-                </label>
-
-                <label className={styles.switchRow}>
-                  <input
-                    type="checkbox"
-                    checked={isQuasiHomogenousCivWithLeader}
-                    onChange={(event) => {
-                      const next = event.target.checked;
+                  <ToggleInfoButton
+                    title="Match with leader (loose)"
+                    tooltip="At least one attribute in common with the selected leader."
+                    pressed={isQuasiHomogenousCivWithLeader}
+                    onToggle={() => {
+                      const next = !isQuasiHomogenousCivWithLeader;
                       setIsQuasiHomogenousCivWithLeader(next);
                       if (next) {
                         setIsHomogenousCivWithLeader(false);
@@ -1010,8 +1112,7 @@ export default function DraftPage() {
                     }}
                     disabled={!hasForcedLeaderSelection(players)}
                   />
-                  <span>Match civ attributes with selected leader (at least 1 attribute in common)</span>
-                </label>
+                </div>
                 {!hasForcedLeaderSelection(players) ? (
                   <p className={styles.helper}>Select a leader for each player to enable leader matching.</p>
                 ) : null}
@@ -1093,33 +1194,46 @@ export default function DraftPage() {
                 return acc;
               }, {} as Record<Age, Civ[]>);
               const selectedLeader = getLeaderById(player.selectedLeaderId);
+              const generatedAges = selectedAges.filter(
+                (age) => (player.draftedCivsByAge[age] ?? []).length > 0,
+              );
 
               return (
                 <Card key={player.id} className={styles.playerCard}>
                   <div className={styles.playerHeader}>
-                    <div>
-                      <label className={styles.label} htmlFor={`player-name-${player.id}`}>
-                        Nom du player
-                      </label>
-                      <input
-                        id={`player-name-${player.id}`}
-                        name={`player-name-${player.id}`}
-                        className={styles.input}
-                        type="text"
-                        placeholder={`Player ${index + 1}`}
-                        value={player.name}
-                        onChange={(event) => updatePlayer(player.id, { name: event.target.value })}
-                      />
+                    <div className={styles.playerTitleRow}>
+                      {editingPlayerId === player.id ? (
+                        <input
+                          id={`player-name-${player.id}`}
+                          name={`player-name-${player.id}`}
+                          className={styles.input}
+                          type="text"
+                          value={editingPlayerName}
+                          onChange={(event) => setEditingPlayerName(event.target.value)}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter') {
+                              commitPlayerName(player);
+                            }
+                            if (event.key === 'Escape') {
+                              cancelPlayerName();
+                            }
+                          }}
+                          onBlur={() => commitPlayerName(player)}
+                        />
+                      ) : (
+                        <>
+                          <span className={styles.playerName}>{player.name}</span>
+                          <IconButton label="Edit player name" icon="✏️" onClick={() => startEditingPlayerName(player)} />
+                        </>
+                      )}
                     </div>
-                    {players.length > 1 ? (
-                      <button
-                        className={styles.buttonDanger}
-                        type="button"
-                        onClick={() => handleRemovePlayer(player.id)}
-                      >
-                        Remove player
-                      </button>
-                    ) : null}
+                    <IconButton
+                      label="Remove player"
+                      icon="✕"
+                      onClick={() => handleRemovePlayer(player.id)}
+                      disabled={players.length <= 1}
+                      variant="danger"
+                    />
                   </div>
 
                   <label className={styles.switchRow}>
@@ -1420,14 +1534,18 @@ export default function DraftPage() {
                       Selected leader:{' '}
                       <strong>{selectedLeader ? selectedLeader.name : 'None selected'}</strong>
                     </p>
-                    <p>
-                      Selected civs:{' '}
-                      {DATA.ages.map((age) => (
-                        <span key={`${player.id}-${age}`}>
-                          {age}: {getCivById(player.selectedCivByAge[age])?.name ?? '—'}{' '}
-                        </span>
-                      ))}
-                    </p>
+                    {generatedAges.length > 0 ? (
+                      <p>
+                        Selected civs:{' '}
+                        {generatedAges.map((age) => (
+                          <span key={`${player.id}-${age}`}>
+                            {age}: {getCivById(player.selectedCivByAge[age])?.name ?? '—'}{' '}
+                          </span>
+                        ))}
+                      </p>
+                    ) : (
+                      <p>Selected civs: None generated yet.</p>
+                    )}
                   </div>
                 </Card>
               );
