@@ -414,6 +414,7 @@ const TagInput = ({
   name: string;
 }) => {
   const [inputValue, setInputValue] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
 
   const suggestions = options
     .filter((option) => option.toLowerCase().includes(inputValue.trim().toLowerCase()))
@@ -441,7 +442,16 @@ const TagInput = ({
       <label className={styles.label} htmlFor={name}>
         {label}
       </label>
-      <div className={styles.tagField}>
+      <div
+        className={styles.tagField}
+        onFocusCapture={() => setIsFocused(true)}
+        onBlurCapture={(event) => {
+          const nextTarget = event.relatedTarget as HTMLElement | null;
+          if (!event.currentTarget.contains(nextTarget)) {
+            setIsFocused(false);
+          }
+        }}
+      >
         <div className={styles.tagList} aria-live="polite">
           {values.map((value) => (
             <span key={value} className={styles.tagChip}>
@@ -475,7 +485,7 @@ const TagInput = ({
             }}
           />
         </div>
-        {suggestions.length > 0 ? (
+        {isFocused && suggestions.length > 0 ? (
           <div className={styles.suggestionList} role="listbox">
             {suggestions.map((option) => (
               <button
